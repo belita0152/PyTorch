@@ -177,13 +177,13 @@ fig, axes = plt.subplots(5, 3)
 for remainder in range(0, 5):
     # index가 5n, +1, +2, +3, +4 일 때 각각 D, Th, A, B, G freq band에 해당.
     idx_AD = [x for x in range(180) if x % 5 == remainder]  # AD = 전체 180개 행. 디버깅으로 확인.
-    AD_freq_band = np.sum(mod_total_AD[idx_AD], axis=0)  # 모든 sub에 대해 각 band일 때의 값을 sum. 이때 열 별로 => axis=0.
+    AD_freq_band = np.mean(mod_total_AD[idx_AD], axis=0)  # 모든 sub에 대해 각 band일 때의 값의 평균. 이때 열 별로 => axis=0.
 
     idx_FTD = [x for x in range(115) if x % 5 == remainder]  # FTD = 전체 115개 행. 디버깅으로 확인.
-    FTD_freq_band = np.sum(mod_total_FTD[idx_FTD], axis=0)
+    FTD_freq_band = np.mean(mod_total_FTD[idx_FTD], axis=0)
 
     idx_CN = [x for x in range(145) if x % 5 == remainder]  # CN = 전체 145개 행. 디버깅으로 확인.
-    CN_freq_band = np.sum(mod_total_CN[idx_CN], axis=0)
+    CN_freq_band = np.mean(mod_total_CN[idx_CN], axis=0)
 
     mne.viz.plot_topomap(AD_freq_band, der_sub_001.info, ch_type='eeg', axes=axes[remainder, 0], show=False)
     mne.viz.plot_topomap(CN_freq_band, der_sub_001.info, ch_type='eeg', axes=axes[remainder, 1], show=False)
