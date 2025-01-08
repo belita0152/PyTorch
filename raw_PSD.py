@@ -40,12 +40,12 @@ def total_psd( fname ):
         electrode_beta_values = electrode_psd[beta_idx[0]:beta_idx[-1] + 1]
         electrode_gamma_values = electrode_psd[gamma_idx[0]:gamma_idx[-1] + 1]
 
-        # psd 값 sum
-        electrode_delta_psd = np.sum(electrode_delta_values, axis=0)
-        electrode_theta_psd = np.sum(electrode_theta_values, axis=0)
-        electrode_alpha_psd = np.sum(electrode_alpha_values, axis=0)
-        electrode_beta_psd = np.sum(electrode_beta_values, axis=0)
-        electrode_gamma_psd = np.sum(electrode_gamma_values, axis=0)
+        # psd 값 mean
+        electrode_delta_psd = np.mean(electrode_delta_values, axis=0)
+        electrode_theta_psd = np.mean(electrode_theta_values, axis=0)
+        electrode_alpha_psd = np.mean(electrode_alpha_values, axis=0)
+        electrode_beta_psd = np.mean(electrode_beta_values, axis=0)
+        electrode_gamma_psd = np.mean(electrode_gamma_values, axis=0)
 
         # 마지막 출력값을 df에 저장
         output = [electrode_delta_psd, electrode_theta_psd, electrode_alpha_psd, electrode_beta_psd,
