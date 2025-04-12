@@ -137,3 +137,5 @@ writer.close()
 
 ## loss 시각화
 # 터미널에 tensorboard --logdir=./log 입력 (logdir= 뒤에는 코드에서 지정한 log_dir를 입력)
+# SSH 접속 시 터미널에 입력: tensorboard --logdir=./log --port=6006 --bind_all
+
